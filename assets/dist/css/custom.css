@@ -1,0 +1,26 @@
+#alert-message {
+	position: top;
+	width: 100%;
+  	left: 0%;
+	z-index: 999;
+	display: none;
+	font-size: 15px;
+}
+
+.swal-footer {
+  text-align: center;
+  overflow: hidden;
+}
+
+.tooltip {
+  width: 400px;
+}
+
+.tooltip {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#tooltip {
+	cursor: pointer;
+}

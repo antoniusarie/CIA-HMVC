@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+# ubah nilai RewriteBase menjadi
+# RewriteBase /
+# saat menggunakan Top Level Domain (TLD)
+
+Options +FollowSymLinks
+Options -Indexes
+
+<FilesMatch "(?i)((\.tpl|\.ini|\.log|(?<!robots)\.txt))">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+RewriteEngine on
+# RewriteBase /cia-hmvc/
+RewriteBase /
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
