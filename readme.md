@@ -31,7 +31,7 @@ PHP Framework CI v3 dengan template AdminLTE v3 + Bootstrap 4 dan ACL module dar
     * Tambah fungsi `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
     * Default `View` menggunakan `Datatables Bootstrap 4` template.
 6. Database dump ada di folder `sql dump`.
-7. Konfigurasi Google `api key` dan `secret key` di modul `auth\config.php`.
+7. Konfigurasi Google `api key` dan `secret key` di folder modul `auth\config.php`.
 8. Konfigurasi `email` di folder modul `auth\email.php`.
 
 ## Akses Login
