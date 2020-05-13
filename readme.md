@@ -4,7 +4,7 @@ Code Igniter Automation - Modular HMVC
 ## Informasi
 PHP Framework CI v3 dengan template AdminLTE v3 + Bootstrap 4 dan ACL module dari Ion Auth serta CRUD Generator.
 
-## Branch Initial - 14/5/2020
+## Initial - 14/5/2020
 1. Update latest `CodeIgniter 3 HMVC` support `php v7.2`.
 2. Integrasi dengan `ADMIN LTE v3` dan `Bootstrap v4`.
 2. Integrasi dengan `Google OAuth2 / Login via Google Account`.
