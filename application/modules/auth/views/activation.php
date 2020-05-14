@@ -11,15 +11,15 @@
     <!-- Refresh each 30 seconds -->
     <meta http-equiv="refresh" content="30">
 
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/adminlte3/dist/css/custom.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/dist/css/custom.css" ?>">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/adminlte3/plugins/fontawesome-free/css/all.min.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/fontawesome-free/css/all.min.css" ?>">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/adminlte3/plugins/ionicons/css/ionicons.min.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/ionicons/css/ionicons.min.css" ?>">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/adminlte3/plugins/icheck-bootstrap/icheck-bootstrap.min.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" ?>">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/adminlte3/dist/css/adminlte.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/dist/css/adminlte.css" ?>">
 </head>
 
 <body class="hold-transition login-page" style="background-color: #bec4ca">
@@ -106,13 +106,13 @@
     <?php echo form_close() ?>
 
     <!-- jQuery -->
-    <script src="<?php echo base_url() . "assets/adminlte3/plugins/jquery/jquery.min.js" ?>"></script>
+    <script src="<?php echo base_url() . "assets/plugins/jquery/jquery.min.js" ?>"></script>
     <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url() . "assets/adminlte3/plugins/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo base_url() . "assets/adminlte3/dist/js/adminlte.min.js" ?>"></script>
+    <script src="<?php echo base_url() . "assets/plugins/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
     <!-- iCheck -->
-    <script src="<?php echo base_url() . "assets/adminlte3/plugins/icheck/icheck.min.js" ?>"></script>
+    <script src="<?php echo base_url() . "assets/plugins/icheck/icheck.min.js" ?>"></script>
+    <!-- AdminLTE App -->
+    <script src="<?php echo base_url() . "assets/dist/js/adminlte.min.js" ?>"></script>
 
     <script>
         window.onload = function() {
