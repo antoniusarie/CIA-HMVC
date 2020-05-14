@@ -16,10 +16,8 @@
     <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/ionicons/css/ionicons.min.css" ?>">
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" ?>">
-    <!-- <link rel="stylesheet" href="<?php // echo base_url() . "assets/adminlte3/plugins/icheck/all.css"
-                                        ?>"> -->
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/adminlte3/dist/css/adminlte.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/dist/css/adminlte.css" ?>">
 </head>
 
 <body class="hold-transition login-page" style="background-color: #bec4ca">
@@ -110,7 +108,7 @@
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url() . "assets/plugins/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
     <!-- iCheck -->
-    <script src="<?php echo base_url() . "assets//icheck/icheck.min.js" ?>"></script>
+    <script src="<?php echo base_url() . "assets/icheck/icheck.min.js" ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo base_url() . "assets/dist/js/adminlte.min.js" ?>"></script>
 
