@@ -27,8 +27,7 @@ PHP Framework CI v3 dengan template AdminLTE v3 + Bootstrap 4 dan ACL module dar
 5. Kustomisasi `Harviacode`:
     * Exclude nama tabel `users`, `groups`, `users_groups` dan `menu` pada menu `Select Table`.
     * Set default generator folder pada `./application/modules/`.
-    * Tambah fungsi `Is Admin` pada semua file MVC, limitasi hanya bisa diakses oleh group `admin`.
-    * Tambah fungsi `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
+    * Tambah variabel `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
     * Default `View` menggunakan `Datatables Bootstrap 4` template.
 6. Database dump ada di folder `sql dump`.
 7. Konfigurasi Google `api key` dan `secret key` di folder modul `auth\config.php`.
