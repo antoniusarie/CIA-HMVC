@@ -129,16 +129,9 @@ class Auth extends MY_Controller
 
 				// get email from google
 				$identity = $data['email'];
-				// print_r($this->db->where(array('email' => $identity))->limit(1)->get('users')->row_array());
-				// die;
 
 				// is Google login true or false ?
 				$google_login = $this->ion_auth->google_login($identity);
-
-				// is Google email exist in database?
-				// $emails = $this->db->where(array('email' => $identity))->limit(1)->count_all_results('users');
-				print_r($google_login);
-				// die;
 
 				if ($google_login) {
 					// set flashdata for success alerts
