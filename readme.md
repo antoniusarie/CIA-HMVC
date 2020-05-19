@@ -39,7 +39,7 @@ Akses login default :
 * Password : `password`.
 
 ## Demo
-Demo website di `https://hmvc.binaniaga.web.id`
+Demo website di https://hmvc.binaniaga.web.id
 
 ## Penutup
 Semoga bermanfaat.
