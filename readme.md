@@ -38,5 +38,8 @@ Akses login default :
 * Username : `admin` atau `stikom@unbin.ac.id`.
 * Password : `password`.
 
+## Demo
+Demo website di `https://hmvc.binaniaga.web.id`
+
 ## Penutup
 Semoga bermanfaat.
