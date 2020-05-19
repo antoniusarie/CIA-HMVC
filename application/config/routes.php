@@ -59,8 +59,6 @@ switch ($_SERVER['HTTP_HOST']) {
         break;
 }
 
-$route['404_override'] 					= '';
-
 /* Auth User */
 $route['users']			 				= 'auth';
 $route['user/create'] 					= 'auth/create_user';
@@ -70,6 +68,7 @@ $route['user/delete/(:num)']			= 'auth/delete_user/$1';
 $route['user/activate/(:any)']		 	= 'auth/activate/$1';
 $route['user/deactivate/(:any)'] 		= 'auth/deactivate/$1';
 
+/* groups */
 $route['groups']			 			= 'auth/group_list';
 $route['group/create']  				= 'auth/create_group';
 $route['group/edit/(:num)'] 			= 'auth/edit_group/$1';
@@ -81,8 +80,6 @@ $route['activate/(:num)'] 				= 'auth/activate/$1';
 $route['login'] 						= 'auth/login';
 $route['logout'] 						= 'auth/logout';
 
-$route['translate_uri_dashes'] 			=  TRUE;
-
 $route['activation']                    = 'auth/activation';
 $route['registration']                  = 'auth/register';
 $route['cancel'] 			            = 'auth/clear';
@@ -92,6 +89,7 @@ $route['activation/user/(:num)/(:any)'] = 'auth/activation_user/$1/$2';
 // $route['edit-password'] 		= 'auth/edit_password';
 // $route['forgot-password'] 	= 'auth/forgot_password';
 
+/* menu */
 $route['menu/create']					= 'menu/create_menu';
 $route['menu/read/(:num)']				= 'menu/read_menu/$1';
 $route['menu/update/(:num)']			= 'menu/update_menu/$1';

@@ -4,12 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Codeigniter Automation - HMVC | Register</title>
+    <title><?php echo @$judul . " | " . @$deskripsi ?></title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Refresh each 3 minutes -->
     <meta http-equiv="refresh" content="180">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url() . "assets/dist/img/favicon.png" ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url() . "assets/dist/img/favicon.png" ?>" type="image/x-icon">
 
     <link rel="stylesheet" href="<?php echo base_url() . "assets/dist/css/custom.css" ?>">
     <!-- Font Awesome -->
@@ -29,7 +33,8 @@
                 <b>CIA </b>HMVC
             </div>
             <!-- alert flashdata -->
-            <?php if (empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')); else echo @$message ?>
+            <?php if (empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type'));
+            else echo @$message ?>
 
             <!-- /.login-logo -->
             <div class="card">

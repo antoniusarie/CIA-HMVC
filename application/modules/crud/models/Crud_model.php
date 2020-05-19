@@ -19,8 +19,9 @@ class Crud_model extends CI_Model
         $subject = file_get_contents(APPPATH.'config/database.php');
         $string = str_replace("defined('BASEPATH') OR exit('No direct script access allowed');", "", $subject);
 
-        $con = 'connection.php';
-        $create = fopen($con, "w") or die("Change your permision folder for application and folder to 777");
+        $path = APPPATH . 'modules/crud/';
+        $con = $path.'core/connection.php';
+        $create = fopen($con, "w") or die("Change your CRUD modules permission in ".$path." to 777");
         fwrite($create, $string);
         fclose($create);
 
@@ -34,7 +35,7 @@ class Crud_model extends CI_Model
         $this->sql = new mysqli($this->host, $this->user, $this->password, $this->database);
         if ($this->sql->connect_error)
         {
-            echo $this->sql->connect_error . ", please check 'application/config/database.php'.";
+            echo $this->sql->connect_error . ", please check 'application/config/database.php'";
             die();
         }
 

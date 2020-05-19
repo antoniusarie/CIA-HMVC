@@ -52,7 +52,8 @@ class Auth extends MY_Controller
 	function login()
 	{
 		ob_start();
-		$data['title'] = "Login";
+		$data['judul'] = "Login";
+		$data['deskripsi'] = "CIA HMVC";
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -86,11 +87,13 @@ class Auth extends MY_Controller
 				redirect('login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		} else {
+
 			// Google Project API Credentials
 			// get item value from modular config
 			$clientId     = $this->config->item('google_client_id');
 			$clientSecret = $this->config->item('google_secret_id');
 			$redirectUrl  = $this->config->item('google_call_back');
+
 			// Google Client Configuration
 			$client = new Google_Client();
 			$client->setApplicationName('My Apps');
@@ -151,35 +154,37 @@ class Auth extends MY_Controller
 					$this->session->set_flashdata('type', 'error');
 				}
 			}
-
-			// the user is not logging in so display the login page
-			// set the flash data error message if there is one
-			$data['message'] = warning_msg(validation_errors());
-			$data['identity'] = array(
-				'name' => 'identity',
-				'id'    => 'identity',
-				'class' => 'form-control',
-				'placeholder' => 'Email / Username',
-				'type'  => 'text',
-				'value' => $this->form_validation->set_value('identity'),
-			);
-			$data['password'] = array(
-				'name' => 'password',
-				'id'   => 'password',
-				'type' => 'password',
-				'class' => 'form-control',
-				'placeholder' => 'Password',
-			);
-			$data['authUrl'] = $client->createAuthUrl(); // Google Login URL
-
-			$this->_render_page('auth/login', $data);
 		}
+
+		print_r($this->session->userdata('google'));
+		// the user is not logging in so display the login page
+		// set the flash data error message if there is one
+		$data['message'] = warning_msg(validation_errors());
+		$data['identity'] = array(
+			'name' => 'identity',
+			'id'    => 'identity',
+			'class' => 'form-control',
+			'placeholder' => 'Email / Username',
+			'type'  => 'text',
+			'value' => $this->form_validation->set_value('identity'),
+		);
+		$data['password'] = array(
+			'name' => 'password',
+			'id'   => 'password',
+			'type' => 'password',
+			'class' => 'form-control',
+			'placeholder' => 'Password',
+		);
+
+		$data['authURL'] = $client->createAuthUrl(); // Google Login URL
+		$this->_render_page('auth/login', $data);
 	}
 
 	// register google account
 	function register()
 	{
-		$data['title'] = "Register";
+		$data['judul'] = "Register";
+		$data['deskripsi'] = "CIA HMVC";
 
 		// get oAuth data from session 'google'
 		$google = $this->session->userdata('google');
@@ -298,7 +303,8 @@ class Auth extends MY_Controller
 
 	function activation()
 	{
-		$data['title'] = "Activation";
+		$data['judul'] = "Activation";
+		$data['deskripsi'] = "CIA HMVC";
 
 		// get oAuth data from session 'google'
 		$google = $this->session->userdata('google');

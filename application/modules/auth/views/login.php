@@ -4,10 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Codeigniter Automation - HMVC | Log in</title>
+    <title><?php echo @$judul ." | ". @$deskripsi ?></title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url() . "assets/dist/img/favicon.png" ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url() . "assets/dist/img/favicon.png" ?>" type="image/x-icon">
 
     <link rel="stylesheet" href="<?php echo base_url() . "assets/dist/css/custom.css" ?>">
     <!-- Font Awesome -->
@@ -26,7 +30,8 @@
             <a href="<?php echo base_url() ?>"><b>CIA </b>HMVC</a>
         </div>
         <!-- alert flashdata -->
-        <?php if(empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')); else echo @$message ?>
+        <?php if (empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type'));
+        else echo @$message ?>
 
         <!-- /.login-logo -->
         <div class="card">
@@ -85,7 +90,7 @@
                     <!-- <a href="#" class="btn btn-block btn-primary">
                         <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
                     </a> -->
-                    <a href="<?php echo $authUrl; ?>" class="btn btn-block btn-danger">
+                    <a href="<?php echo $authURL; ?>" class="btn btn-block btn-danger">
                         <i class="fab fa-google mr-2"></i> Sign in with Google
                     </a>
                 </div>
