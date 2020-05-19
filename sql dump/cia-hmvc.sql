@@ -92,7 +92,7 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '::1', 'admin', '$2y$08$TjLyGrbOtG9tKSs5j8dkqekWBVmrInCkfmkY6ZKbSwXSyeYjBR9pG', NULL, 'stikom@unbin.ac.id', NULL, '2CC567', NULL, NULL, NULL, 1589403512, 1589403573, 1, 1, 'Admin', 'Istrator', 'STIKOM', '081219022882', '');
+INSERT INTO `users` VALUES (1, '::1', 'admin', '$2y$08$TjLyGrbOtG9tKSs5j8dkqekWBVmrInCkfmkY6ZKbSwXSyeYjBR9pG', NULL, 'stikom@unbin.ac.id', NULL, '2CC567', NULL, NULL, NULL, 1589403512, 1589403573, 1, 1, 'Admin', 'Istrator', 'STIKOM', '081219022882', 'default.png');
 
 -- ----------------------------
 -- Table structure for users_groups
