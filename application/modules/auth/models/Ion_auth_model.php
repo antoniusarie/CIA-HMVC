@@ -2158,14 +2158,29 @@ class Ion_auth_model extends CI_Model
 	{
 		$this->db->where('email', $identity);
 		$this->db->limit(1);
-		$users = $this->db->count_all_results('users');
+		$is_user_exist = $this->db->count_all_results('users');
 
-		if (!isset($users) || $users < 1) {
+		if (!isset($is_user_exist) || $is_user_exist < 1) {
 			$register_id = $this->ion_auth->register($identity, $password, $email, $data);
 
 			if ($register_id) {
 				$this->ion_auth->deactivate($register_id);
-				// $this->ion_auth->login($identity, $password, TRUE);
+
+				$users = $this->db->where(array('email' => $identity))->limit(1)->get('users')->row_array(); // get user data
+				// send email activation code for the first time
+				$email_content = '<h2>Hello, <b>' . ucfirst($users['first_name']) . ' ' . ucfirst($users['last_name']) . '</b></h2>';
+				$email_content .= '<p>Below is the the <i>activation validation code</i></p>';
+				$email_content .= '<h3><b>' . $users['active_code'] . '</b></h3>';
+				$email_content .= '<p>You can paste the code to the activation page</p>';
+				$email_content .= '<p><b>- OR -</b></p>';
+				$email_content .= '<p>You can click URL below to activate and login directly<br>';
+				$email_content .= '<b>' . anchor('activation/user/' . $users['id'] . '/' . $users['active_code']) . '</b></p>';
+				email_send($users['email'], 'Activation Validation Code', $email_content);
+
+				$this->session->set_flashdata('message', 'Activation code has been sent to your email at <b>' . $users['email'] . '</b>');
+				$this->session->set_flashdata('type', 'success');
+
+				redirect('activation', 'refresh');
 			}
 			return TRUE;
 		}
@@ -2173,42 +2188,36 @@ class Ion_auth_model extends CI_Model
 
 	public function google_login($identity)
 	{
-		// get pure-array as users from database
-		$users = $this->db->where(array('email' => $identity))->limit(1)->get('users')->row_array();
-		if ($identity == $users['email']) {
-			if ($users['activation'] == 1) {
-				if ($users['active'] == 1) {
-					$userdata = array(
-						'identity' => $users['email'],
-						'username' => $users['username'],
-						'email' => $users['email'],
-						'user_id' => $users['id'],
-						'old_last_login' => $users['last_login']
-					);
-					$this->set_message('login_successful');
-					$this->session->set_userdata($userdata); // append new session into ion_auth
-					return TRUE;
-				} else {
-					$this->set_error('login_unsuccessful_not_active');
-					return FALSE;
-				}
-			} else {
-				// send email for activation code
-				$email_content = '<h2>Hello, <b>' . ucfirst($users['first_name']) . ' ' . ucfirst($users['last_name']) . '</b></h2>';
-				$email_content .= '<p>Below is the the <i>activation validation code</i></p>';
-				$email_content .= '<h3><b>' . $users['active_code'] . '</b></h3>';
-				$email_content .= '<p>You can paste the code to the activation page</p>';
-				$email_content .= '<p><b>- OR -</b></p>';
-				$email_content .= '<p>You can click URL below to activate and login directly<br>';
-				$email_content .= '<b>'.anchor('activation/user/' . $users['id'] . '/' . $users['active_code']).'</b></p>';
-				email_send($users['email'], 'Activation Validation Code', $email_content);
+		$this->db->where('email', $identity);
+		$this->db->limit(1);
+		$is_user_exist = $this->db->count_all_results('users'); // 1 = yes, 0 = no
 
+		if (!isset($is_user_exist) || $is_user_exist < 1) {
+			redirect('registration', 'refresh');
+			return FALSE;
+		} else {
+			$users = $this->db->where(array('email' => $identity))->limit(1)->get('users')->row_array(); // get user data
+			if ($users['active'] == 1 && $users['activation'] == 1) {
+				$userdata = array(
+					'identity' => $users['email'],
+					'username' => $users['username'],
+					'email' => $users['email'],
+					'user_id' => $users['id'],
+					'old_last_login' => $users['last_login']
+				);
+				$this->set_message('login_successful');
+				$this->session->set_userdata($userdata); // append new session into ion_auth
+				return TRUE;
+			} elseif ($users['activation'] == 0) {
 				redirect('activation', 'refresh');
 				return FALSE;
+			} elseif ($users['active'] == 0) {
+				$this->set_error('login_unsuccessful_not_active');
+				return FALSE;
+			} else {
+				$this->set_error('login_unsuccessful');
+				return FALSE;
 			}
-		} else {
-			$this->set_error('login_unsuccessful');
-			return FALSE;
 		}
 	}
 
@@ -2261,5 +2270,4 @@ class Ion_auth_model extends CI_Model
 		}
 	}
 	/* End of function */
-
 }

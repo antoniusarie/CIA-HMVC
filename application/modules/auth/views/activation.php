@@ -35,19 +35,13 @@
                 <b>CIA </b>HMVC
             </div>
             <!-- alert flashdata -->
-            <?php if (empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type'));
-            else echo @$message ?>
+            <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
 
             <!-- /.login-logo -->
             <div class="card">
                 <div class="card-body login-card-body">
                     <h6 class="text-center"><b>Account Activation</b></h6>
                     <hr>
-                    <div class="alert alert-light" role="alert">
-                        <p class="text-center">
-                            Activation code has been sent to your email at <b><?php echo $identity ?></b>
-                        </p>
-                    </div>
                     <div class="alert alert-secondary" role="alert">
                         <p class="text-center">
                             Paste the code below to activate !
@@ -57,7 +51,8 @@
                         </div>
                     </div>
                     <div class="social-auth-links text-center mb-2">
-                        <a href="<?php echo base_url('generate/' . $id) ?>">Generate New Code</a>
+                        <b>Not receiving any Code ?</b><br>
+                        <a href="<?php echo base_url('generate/' . $id) ?>">Get Activation Code</a>
                     </div>
                     <hr>
                     <div class="row">
@@ -82,7 +77,7 @@
                 <b>CIA </b>HMVC
             </div>
             <!-- alert flashdata -->
-            <?php echo empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message ?>
+            <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
 
             <!-- /.login-logo -->
             <div class="card">

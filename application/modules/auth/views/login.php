@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php echo @$judul ." | ". @$deskripsi ?></title>
+    <title><?php echo @$judul . " | " . @$deskripsi ?></title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -29,24 +29,14 @@
         <div class="login-logo">
             <a href="<?php echo base_url() ?>"><b>CIA </b>HMVC</a>
         </div>
+
         <!-- alert flashdata -->
-        <?php if (empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type'));
-        else echo @$message ?>
+        <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
 
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg"><b>Sign in to start your session</b></p>
-
-                <?php if (!empty($message)) : ?>
-                    <div id="alert-message">
-                        <div class="alert alert-warning alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fas fa-times-circle"></i></button>
-                            <h5><i class="fas fa-exclamation-triangle"></i> Warning !</h5>
-                            <p class="login-box-msg"><?php echo $message; ?></p>
-                        </div>
-                    </div>
-                <?php endif ?>
 
                 <?php echo form_open(uri_string()) ?>
                 <div class="input-group mb-3">

@@ -33,8 +33,7 @@
                 <b>CIA </b>HMVC
             </div>
             <!-- alert flashdata -->
-            <?php if (empty(@$message)) echo flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type'));
-            else echo @$message ?>
+            <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
 
             <!-- /.login-logo -->
             <div class="card">

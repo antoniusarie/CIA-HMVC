@@ -96,7 +96,7 @@ class Auth extends MY_Controller
 
 			// Google Client Configuration
 			$client = new Google_Client();
-			$client->setApplicationName('My Apps');
+			$client->setApplicationName('CIA HMVC');
 			$client->setClientId($clientId);
 			$client->setClientSecret($clientSecret);
 			$client->setRedirectUri($redirectUrl);
@@ -129,12 +129,16 @@ class Auth extends MY_Controller
 
 				// get email from google
 				$identity = $data['email'];
+				// print_r($this->db->where(array('email' => $identity))->limit(1)->get('users')->row_array());
+				// die;
 
 				// is Google login true or false ?
 				$google_login = $this->ion_auth->google_login($identity);
 
 				// is Google email exist in database?
-				$emails = $this->db->where(array('email' => $identity))->limit(1)->count_all_results('users');
+				// $emails = $this->db->where(array('email' => $identity))->limit(1)->count_all_results('users');
+				print_r($google_login);
+				// die;
 
 				if ($google_login) {
 					// set flashdata for success alerts
@@ -144,39 +148,32 @@ class Auth extends MY_Controller
 					// redirect them back to the home page
 					redirect('home', 'refresh');
 				} else {
-					if (!isset($emails) || $emails < 1) {
-						// If Email doesn't exist then register
-						redirect('registration', 'refresh');
-						// } else {
-					}
 					// if FALSE then show error based on it's condition
 					$this->session->set_flashdata('message', $this->ion_auth->errors());
 					$this->session->set_flashdata('type', 'error');
+					$this->clear();
 				}
 			}
+			// the user is not logging in so display the login page
+			// set the flash data error message if there is one
+			$data['message'] = warning_msg(validation_errors());
+			$data['identity'] = array(
+				'name' => 'identity',
+				'id'    => 'identity',
+				'class' => 'form-control',
+				'placeholder' => 'Email / Username',
+				'type'  => 'text',
+				'value' => $this->form_validation->set_value('identity'),
+			);
+			$data['password'] = array(
+				'name' => 'password',
+				'id'   => 'password',
+				'type' => 'password',
+				'class' => 'form-control',
+				'placeholder' => 'Password',
+			);
+			$data['authURL'] = $client->createAuthUrl(); // Google Login URL
 		}
-
-		print_r($this->session->userdata('google'));
-		// the user is not logging in so display the login page
-		// set the flash data error message if there is one
-		$data['message'] = warning_msg(validation_errors());
-		$data['identity'] = array(
-			'name' => 'identity',
-			'id'    => 'identity',
-			'class' => 'form-control',
-			'placeholder' => 'Email / Username',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('identity'),
-		);
-		$data['password'] = array(
-			'name' => 'password',
-			'id'   => 'password',
-			'type' => 'password',
-			'class' => 'form-control',
-			'placeholder' => 'Password',
-		);
-
-		$data['authURL'] = $client->createAuthUrl(); // Google Login URL
 		$this->_render_page('auth/login', $data);
 	}
 
@@ -218,14 +215,16 @@ class Auth extends MY_Controller
 					$password = $this->input->post('password');
 					$email = $data['email'];
 
-					// registering account
+					// registering google account
 					$this->ion_auth->google_register($identity, $password, $email, $data);
-					// $this->Google_oauth_model->register($identity, $password, $email, $data);
 
+					/* Auto Registration
+					// $this->Google_oauth_model->register($identity, $password, $email, $data);
 					// notification if success
-					$this->session->set_flashdata('message', 'Account is successfully registered!');
-					$this->session->set_flashdata('type', 'success');
+					// $this->session->set_flashdata('message', 'Account is successfully registered!');
+					// $this->session->set_flashdata('type', 'success');
 					redirect('home', 'refresh');
+					*/
 				} else {
 
 					$this->session->set_flashdata('message', $this->ion_auth->errors());
