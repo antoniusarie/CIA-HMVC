@@ -8,9 +8,9 @@
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/dataTables.buttons.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js" ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/dataTables.html5.min.js" ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/dataTables.print.min.js" ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/dataTables.colVis.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.html5.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.print.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.colVis.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/pdfmake/pdfmake.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/pdfmake/vfs_fonts.js" ?>"></script>
 
@@ -29,8 +29,8 @@
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/moment/moment.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/moment/locale/id.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js" ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.js" ?>"></script>
-<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/iCheck/icheck.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/overlayScrollbars/js/OverlayScrollbars.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/icheck/icheck.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/toastr/toastr.min.js" ?>"></script>
 
@@ -111,7 +111,7 @@
       });
 
       /* URL auto fill */
-      if ($('#url').val().length === 0) {
+      if ($('#url').val.length === 0) {
         $('#url').val('#');
       };
 

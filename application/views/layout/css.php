@@ -1,4 +1,3 @@
-
     <!-- Custom -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/dist/css/custom.css" ?>">
 
@@ -15,7 +14,7 @@
 
     <!-- Others -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/plugins/select2/css/select2.min.css" ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/plugins/iCheck/all.css" ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/plugins/icheck/all.css" ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/plugins/datepicker/css/bootstrap-datepicker.min.css" ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/plugins/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.min.css" ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" ?>">
