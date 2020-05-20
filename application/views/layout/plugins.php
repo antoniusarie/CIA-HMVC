@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.html5.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.print.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/datatables-buttons/js/buttons.colVis.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/jszip/jszip.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/pdfmake/pdfmake.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/pdfmake/vfs_fonts.js" ?>"></script>
 
@@ -61,7 +62,7 @@
   function showAll() {
     $(document).ready(function() {
       var table = $("#mytable").dataTable({
-        // "dom": '<"col-xs-2" l>Brft<"col-xs-1" i>p',
+        "dom": '<"row" <"col-auto" l><"col ml-auto" B>rf> t <"row" <"col" i>p>',
         "responsive": true,
         "pageLength": 20,
         "lengthMenu": [
@@ -69,21 +70,19 @@
           [10, 20, 50, "All"]
         ],
         "buttons": [{
-            extend: 'colvis',
-            text: '<b><i class="fas fa-bars"></i> Kolom</b>',
-            className: 'font-orange',
-            // exportOptions:
-            // {
-            //     columns: [0,1,2,3,4,5]
-            // },
+            extend: 'copy',
+            text: '<b><i class="fas fa-copy"></i> Copy</b>',
+            className: 'btn-sm btn-warning'
           },
           {
-            extend: 'excelHtml5',
+            extend: 'excel',
             text: '<b><i class="fas fa-file-excel"></i> Excel</b>',
-            className: 'font-green',
-            exportOptions: {
-              columns: ':visible'
-            },
+            className: 'btn-sm btn-success',
+          },
+          {
+            extend: 'pdf',
+            text: '<b><i class="fas fa-file-pdf"></i> PDF</b>',
+            className: 'btn-sm btn-danger',
           },
         ],
         "language": {
@@ -103,6 +102,8 @@
           }
         },
       });
+      // append buttons to table wrapper
+      table.buttons().container().appendTo('#mytable_wrapper');
 
       /* fontawesome iconpicker */
       $(".iconpicker").iconpicker({
