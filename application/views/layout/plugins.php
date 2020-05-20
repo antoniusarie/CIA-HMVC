@@ -72,7 +72,7 @@
         "buttons": [{
             extend: 'copy',
             text: '<b><i class="fas fa-copy"></i> Copy</b>',
-            className: 'btn-sm btn-warning'
+            className: 'btn-sm btn-info'
           },
           {
             extend: 'excel',
