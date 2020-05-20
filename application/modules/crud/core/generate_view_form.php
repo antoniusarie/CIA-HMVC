@@ -67,14 +67,14 @@ foreach ($non_pk as $row) {
               );
             echo form_input(\$array_".strtolower($row["column_name"]). "); ?>
           </div>
-        </div>
-
-      </div>
-      <!-- /.card-body -->";
+        </div>";
     }
 }
 $string .= "\n\t    <input type=\"hidden\" name=\"" . $pk . "\" value=\"<?php echo $" . $pk . "; ?>\" /> ";
 $string .= "\n\t
+      </div>
+      <!-- /.card-body -->
+
       <div class=\"card-footer\">
         <button type=\"submit\" name=\"<?php echo \$button ?>\" class=\"btn btn-primary\"><i class=\"fa fa-check mr-1\"></i> Submit</button>
         <a href=\"<?php echo site_url(\"" . $c_url . "\") ?>\" type=\"button\" class=\"btn btn-default float-right\"><i class=\"fa fa-chevron-left mr-1\"></i> Back</a>

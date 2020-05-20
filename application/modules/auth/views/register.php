@@ -130,7 +130,7 @@
         function effect_msg() {
             /* alert messages 1 */
             $('#alert-message').slideDown(1500);
-            $('#alert-message').delay(2500).slideUp(1500);
+            $('#alert-message').delay(4000).slideUp(1500);
         }
 
         $(document).ready(function() {
