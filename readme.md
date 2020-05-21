@@ -29,9 +29,9 @@ PHP Framework CI v3 dengan template AdminLTE v3 + Bootstrap 4 dan ACL module dar
     * Set default generator folder pada `./application/modules/`.
     * Tambah variabel `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
     * Default `View` menggunakan `Datatables Bootstrap 4` template.
-7. Database dump ada di folder `sql dump`.
+7. Database dump `cia-hmvc.sql` ada di folder `sql`.
 8. Konfigurasi Google `client-id` dan `client-secret` di `google_config.php`.
-9. Konfigurasi Email di '`email.php`.
+9. Konfigurasi Email di `email.php`.
 
 ## Akses Login
 Akses login default :
