@@ -4,8 +4,8 @@
 $config['protocol']         = 'smtp';
 $config['smtp_host']        = 'ssl://smtp.gmail.com';
 $config['smtp_port']        = 465;
-$config['smtp_username']    = "your_email@gmail.com";
-$config['smtp_password']    = "your_password";
+$config['smtp_username']    = "your email @gmail.com";
+$config['smtp_password']    = "your password";
 $config['smtp_timeout']     = 5;
 $config['wordwrap']         = TRUE;
 $config['wrapchars']        = 250;
