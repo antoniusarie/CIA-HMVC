@@ -2,6 +2,7 @@
 # ubah nilai RewriteBase menjadi
 # RewriteBase /
 # saat menggunakan Top Level Domain (TLD)
+RewriteEngine on
 
 Options +FollowSymLinks
 Options -Indexes
