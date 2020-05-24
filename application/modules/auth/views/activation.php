@@ -28,15 +28,15 @@
 
 <body class="hold-transition login-page" style="background-color: #bec4ca">
 
-    <?php echo form_open(uri_string()) ?>
-    <?php if ($activation == 0) : ?>
-        <div class="login-box">
-            <div class="login-logo">
-                <b>CIA </b>HMVC
-            </div>
-            <!-- alert flashdata -->
-            <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
+    <div class="login-box">
+        <div class="login-logo">
+            <b>CIA </b>HMVC
+        </div>
+        <!-- alert flashdata -->
+        <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
 
+            <?php echo form_open(uri_string()) ?>
+            <?php if ($activation == 0) : ?>
             <!-- /.login-logo -->
             <div class="card">
                 <div class="card-body login-card-body">
@@ -67,18 +67,9 @@
                 </div>
                 <!-- /.login-card-body -->
             </div>
-        </div>
-        <!-- /.login-box -->
-    <?php elseif ($this->ion_auth->logged_in()) : ?>
-        <?php redirect('home', 'refresh') ?>
-    <?php else : ?>
-        <div class="login-box">
-            <div class="login-logo">
-                <b>CIA </b>HMVC
-            </div>
-            <!-- alert flashdata -->
-            <?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
-
+            <?php elseif ($this->ion_auth->logged_in()) : ?>
+                <?php redirect('home', 'refresh') ?>
+            <?php else : ?>
             <!-- /.login-logo -->
             <div class="card">
                 <div class="card-body login-card-body">
@@ -100,40 +91,41 @@
                 </div>
                 <!-- /.login-card-body -->
             </div>
+            <?php endif ?>
+            <?php echo form_close() ?>
+
         </div>
         <!-- /.login-box -->
-    <?php endif ?>
-    <?php echo form_close() ?>
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url() . "assets/plugins/jquery/jquery.min.js" ?>"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?php echo base_url() . "assets/plugins/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
-    <!-- iCheck -->
-    <script src="<?php echo base_url() . "assets/plugins/icheck/icheck.min.js" ?>"></script>
-    <!-- AdminLTE App -->
-    <script src="<?php echo base_url() . "assets/dist/js/adminlte.min.js" ?>"></script>
+        <!-- jQuery -->
+        <script src="<?php echo base_url() . "assets/plugins/jquery/jquery.min.js" ?>"></script>
+        <!-- Bootstrap 4 -->
+        <script src="<?php echo base_url() . "assets/plugins/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
+        <!-- iCheck -->
+        <script src="<?php echo base_url() . "assets/plugins/icheck/icheck.min.js" ?>"></script>
+        <!-- AdminLTE App -->
+        <script src="<?php echo base_url() . "assets/dist/js/adminlte.min.js" ?>"></script>
 
-    <script>
-        window.onload = function() {
-            effect_msg();
-        };
+        <script>
+            window.onload = function() {
+                effect_msg();
+            };
 
-        /* alert messages */
-        function effect_msg() {
-            /* alert messages 1 */
-            $('#alert-message').slideDown(1500);
-            $('#alert-message').delay(4000).slideUp(1500);
-        }
+            /* alert messages */
+            function effect_msg() {
+                /* alert messages 1 */
+                $('#alert-message').slideDown(1500);
+                $('#alert-message').delay(4000).slideUp(1500);
+            }
 
-        $(document).ready(function() {
-            $("input").iCheck({
-                checkboxClass: 'icheckbox_flat-blue',
-                radioClass: 'iradio_flat-blue',
-                increaseArea: '20%' // optional
+            $(document).ready(function() {
+                $("input").iCheck({
+                    checkboxClass: 'icheckbox_flat-blue',
+                    radioClass: 'iradio_flat-blue',
+                    increaseArea: '20%' // optional
+                });
             });
-        });
-    </script>
+        </script>
 
 </body>
 

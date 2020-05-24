@@ -103,7 +103,7 @@
     <!-- Bootstrap 4 -->
     <script src="<?php echo base_url() . "assets/plugins/bootstrap/js/bootstrap.bundle.min.js" ?>"></script>
     <!-- iCheck -->
-    <script src="<?php echo base_url() . "assets/icheck/icheck.min.js" ?>"></script>
+    <script src="<?php echo base_url() . "assets/plugins/icheck/icheck.min.js" ?>"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo base_url() . "assets/dist/js/adminlte.min.js" ?>"></script>
 

@@ -384,7 +384,7 @@ class Auth extends MY_Controller
 				email_send($users['email'], 'Activation Code Request', $email_content);
 
 				// notification if sgenerate uccess
-				$this->session->set_flashdata('message', 'Generate Code Success<br>Please check your <b>inbox</b> !');
+				$this->session->set_flashdata('message', 'Generate Code has been sent to your email at <b>' . $users['email'] . '</b><br>Please check your <b>inbox</b> !');
 				$this->session->set_flashdata('type', 'success');
 				redirect('activation');
 			}
