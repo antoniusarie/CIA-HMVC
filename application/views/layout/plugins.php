@@ -61,7 +61,7 @@
 
   function showAll() {
     $(document).ready(function() {
-      var table = $("#mytable").dataTable({
+      var table = $("#mytable").DataTable({
         "dom": '<"row" <"col-auto" l><"col ml-auto" B>rf> t <"row" <"col" i>p>',
         "responsive": true,
         "pageLength": 20,
