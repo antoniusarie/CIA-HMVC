@@ -62,7 +62,7 @@
   function showAll() {
     $(document).ready(function() {
       var table = $("#mytable").DataTable({
-        "dom": '<"row" <"col-auto" l><"col ml-auto" B>rf> t <"row" <"col" i>p>',
+        // "dom": '<"row" <"col-auto" l><"col ml-auto" B>rf> t <"row" <"col" i>p>', // .dataTable()
         "responsive": true,
         "pageLength": 20,
         "lengthMenu": [
@@ -102,8 +102,8 @@
           }
         },
       });
-      // append buttons to table wrapper
-      table.buttons().container().appendTo('#mytable_wrapper');
+      // append buttons to length wrapper & add class auto column/margin
+      table.buttons().container().appendTo('#mytable_length').addClass('col-auto ml-auto'); // .DataTable() - capital D
 
       /* fontawesome iconpicker */
       $(".iconpicker").iconpicker({
@@ -143,5 +143,4 @@
     $("#password, #password_confirm").prop("disabled", true);
   });
 
-  /* Toastr */
 </script>
