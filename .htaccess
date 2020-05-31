@@ -4,7 +4,6 @@
 # saat menggunakan Top Level Domain (TLD)
 RewriteEngine on
 
-Options +FollowSymLinks
 Options -Indexes
 
 <FilesMatch "(?i)((\.tpl|\.ini|\.log|(?<!robots)\.txt))">
