@@ -74,19 +74,44 @@
           [10, 20, 50, "All"]
         ],
         "buttons": [{
+            extend: 'colvis',
+            text: '<b><i class="fas fa-bars"></i> Column</b>',
+            className: 'btn-sm btn-secondary',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
+            extend: 'print',
+            text: '<b><i class="fas fa-print"></i> Print</b>',
+            className: 'btn-sm btn-info',
+            exportOptions: {
+              columns: ':visible'
+            }
+          },
+          {
             extend: 'copy',
             text: '<b><i class="fas fa-copy"></i> Copy</b>',
-            className: 'btn-sm btn-info'
+            className: 'btn-sm btn-warning',
+            exportOptions: {
+              columns: ':visible'
+            }
           },
           {
             extend: 'excel',
             text: '<b><i class="fas fa-file-excel"></i> Excel</b>',
             className: 'btn-sm btn-success',
+            exportOptions: {
+              columns: ':visible'
+            }
           },
           {
             extend: 'pdf',
             text: '<b><i class="fas fa-file-pdf"></i> PDF</b>',
             className: 'btn-sm btn-danger',
+            exportOptions: {
+              columns: ':visible'
+            }
           },
         ],
         "language": {
