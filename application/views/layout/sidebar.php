@@ -122,7 +122,7 @@
             <?php endif ?>
 
             <li class="nav-item">
-                <a href="<?php echo base_url("profile/user/" . $user->id) ?>" class="nav-link <?php echo $this->uri->segment(1) == 'profile' ? 'active' : '' ?>">
+                <a href="<?php echo base_url("profile") ?>" class="nav-link <?php echo $this->uri->segment(1) == 'profile' ? 'active' : '' ?>">
                     <i class="nav-icon fas fa-user-circle"></i>
                     <p>Profile</p>
                 </a>

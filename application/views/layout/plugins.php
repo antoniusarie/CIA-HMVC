@@ -32,6 +32,7 @@
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/overlayScrollbars/js/OverlayScrollbars.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/icheck/icheck.min.js" ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() . "assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/plugins/toastr/toastr.min.js" ?>"></script>
 
@@ -49,17 +50,20 @@
 <!-- custom script -->
 <script type="text/javascript">
   window.onload = function() {
-    showAll();
-    effect_msg();
+    load_all();
+    load_msg();
   };
 
-  function effect_msg() {
+  function load_msg() {
+    /* Toaster */
+    <?php echo (empty(@$message) ? toastr_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
+
     /* alert messages 1 */
-    $('#alert-message').slideDown(1500)
-    $('#alert-message').delay(2500).slideUp(1500)
+    // $('#alert-message').slideDown(1500)
+    // $('#alert-message').delay(2500).slideUp(1500)
   }
 
-  function showAll() {
+  function load_all() {
     $(document).ready(function() {
       var table = $("#mytable").DataTable({
         // "dom": '<"row" <"col-auto" l><"col ml-auto" B>rf> t <"row" <"col" i>p>', // .dataTable()
@@ -104,43 +108,52 @@
       });
       // append buttons to length wrapper & add class auto column/margin
       table.buttons().container().appendTo('#mytable_length').addClass('col-auto ml-auto'); // .DataTable() - capital D
-
-      /* fontawesome iconpicker */
-      $(".iconpicker").iconpicker({
-        hideOnSelect: true,
-        animation: true,
-      });
-
-      /* URL auto fill */
-      if ($('#url').val.length === 0) {
-        $('#url').val('#');
-      };
-
     }); // document ready
-  }; // ShowAll()
 
-  $(".btn-delete").on("click", function(e) {
-    $('#confirm-delete').modal('hide');
-  });
+    /* fontawesome iconpicker */
+    $(".iconpicker").iconpicker({
+      hideOnSelect: true,
+      animation: true,
+    });
 
-  /* Select2 */
-  $(".select2").select2();
+    /* URL auto fill */
+    if ($('#url').val.length === 0) {
+      $('#url').val('#');
+    };
 
-  /* iCheck */
-  $('input').iCheck({
-    checkboxClass: 'icheckbox_flat-blue',
-    radioClass: 'iradio_flat-blue',
-    increaseArea: '20%' // optional
-  });
+    /* BS File Input */
+    bsCustomFileInput.init();
 
-  $("#check-password").on('ifChecked', function() {
-    $("#password, #password_confirm").prop("disabled", false);
-    $("#password, #password_confirm").val('');
-  });
+    $(".btn-delete").on("click", function(e) {
+      $('#confirm-delete').modal('hide');
+    });
 
-  $("#check-password").on('ifUnchecked', function() {
-    $("#password, #password_confirm").val('');
-    $("#password, #password_confirm").prop("disabled", true);
-  });
+    /* Toastr Option */
+    toastr.options = {
+      'closeButton': true,
+      'positionClass': 'toast-top-right',
+      'timeOut': '4000',
+    }
 
+    /* Select2 */
+    $(".select2").select2();
+
+    /* iCheck */
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_flat-blue',
+      radioClass: 'iradio_flat-blue',
+      increaseArea: '20%' // optional
+    });
+
+    $("#check-password").on('ifChecked', function() {
+      $("#password, #password_confirm").prop("disabled", false);
+      $("#password, #password_confirm").val('');
+    });
+
+    $("#check-password").on('ifUnchecked', function() {
+      $("#password, #password_confirm").val('');
+      $("#password, #password_confirm").prop("disabled", true);
+    });
+
+  }; // load_all()
 </script>

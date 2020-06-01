@@ -41,3 +41,15 @@ body {font-family: 'Oxygen', sans-serif !important;
 #tooltip {
 	cursor: pointer;
 }
+
+.custom-file-label:after {
+	font-family   : "Font Awesome 5 Free";
+	vertical-align: middle;
+	font-size     : 16px;
+	font-weight   : 900;
+	content       : "\f07c" !important;
+}
+
+.custom-file-label {
+	overflow: hidden;
+}

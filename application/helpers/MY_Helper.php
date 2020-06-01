@@ -36,6 +36,63 @@ function label($str)
     return $label;
 }
 
+function trim_str($string)
+{
+    $trim_str1 = str_replace(array('<p>', '</p>'), array('', ''), $string);
+    $trim_str2 = str_replace('.', '.<br>', $trim_str1);
+    return preg_replace('/\r|\n/', '', $trim_str2);
+}
+
+function toastr_warning_msg($content, $type='error')
+{
+    // Command: toastr["success"]("Message", "Title")
+    if ($content != '') {
+        return "toastr." . $type . "('" . $content . "', '" . ucwords($type) . " !');";
+    }
+}
+
+function toastr_msg($content, $type)
+{
+    // Command: toastr["success"]("Message", "Title")
+    if ($content != '') {
+        return "toastr." . $type . "('" . $content . "', '" . ucwords($type) . " !');";
+    }
+
+    /* Built In AdminLTE3 Toastr */
+
+    // if ($type == 'success') {
+    //     $icon = 'check-circle';
+    //     $title = 'Success';
+    //     $class = 'success';
+    // } elseif ($type == 'error') {
+    //     $icon = 'times-circle';
+    //     $title = 'Failed';
+    //     $class = 'danger';
+    // } elseif ($type == 'warning') {
+    //     $icon = 'exclamation-triangle';
+    //     $title = 'Warning';
+    //     $class = 'warning';
+    // } else {
+    //     $icon = 'question-circle';
+    //     $title = 'Info';
+    //     $class = 'info';
+    // }
+
+    // if ($content != '') {
+    //     return '
+    //     $(document).Toasts("create", {
+    //         class: "bg-'.$class.'",
+    //         autohide: true,
+    //         fixed: false,
+    //         icon: "fas fa-'.$icon.' fa-lg",
+    //         delay: 5000,
+    //         title: "' . ucwords($title) . '",
+    //         body: "' . $content . '",
+    //     });
+    //   ';
+    // }
+}
+
 function flash_msg($content = '', $type = '')
 {
     if ($type == 'success') {
