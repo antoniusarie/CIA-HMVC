@@ -47,7 +47,7 @@ function toastr_warning_msg($content, $type='error')
 {
     // Command: toastr["success"]("Message", "Title")
     if ($content != '') {
-        return "toastr." . $type . "('" . $content . "', '" . ucwords($type) . " !');";
+        return "toastr." . $type . "('" . $content . "', '<b>" . ucwords($type) . " !</b>');";
     }
 }
 
@@ -55,7 +55,7 @@ function toastr_msg($content, $type)
 {
     // Command: toastr["success"]("Message", "Title")
     if ($content != '') {
-        return "toastr." . $type . "('" . $content . "', '" . ucwords($type) . " !');";
+        return "toastr." . $type . "('" . $content . "', '<b>" . ucwords($type) . " !</b>');";
     }
 
     /* Built In AdminLTE3 Toastr */

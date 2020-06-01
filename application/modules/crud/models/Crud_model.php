@@ -45,7 +45,7 @@ class Crud_model extends CI_Model
     function list_tables()
     {
         $all_tables = $this->db->list_tables();
-        $disallow_tables = array("users", "users_groups", "groups", "menu", "login_attempts"); // exclude tables as Array
+        $disallow_tables = array("users", "users_groups", "groups", "menu", "login_attempts", "site"); // exclude tables as Array
         $tables = array_diff($all_tables, $disallow_tables);
         return $tables;
     }

@@ -123,8 +123,8 @@ class Menu extends MX_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('message', validation_errors());
-            $this->session->set_flashdata('type', 'warning');
+            $this->session->set_flashdata('message', trim_str(validation_errors()));
+            $this->session->set_flashdata('type', 'error');
             $this->create_menu();
             redirect(site_url('menu/create_menu'));
         } else {
@@ -190,8 +190,8 @@ class Menu extends MX_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->session->set_flashdata('message', validation_errors());
-            $this->session->set_flashdata('type', 'warning');
+            $this->session->set_flashdata('message', trim_str(validation_errors()));
+            $this->session->set_flashdata('type', 'error');
             $this->update_menu($this->input->post('id', TRUE));
             redirect(site_url('menu/update_menu/'.$this->input->post('id', TRUE)));
         } else {

@@ -11,7 +11,7 @@
                     </div>
 
                     <!-- Horizontal Form -->
-                    <?php echo form_open(uri_string(), 'id="crud" class="form-horizontal"'); ?>
+                    <?php echo form_open($action, $crud) ?>
 
                     <div class="card-body">
 
@@ -56,10 +56,21 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-8 offset-sm-3">
+                            <label class="col-sm-3 col-form-label">Menu Icon</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <?php echo form_input($icon); ?>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" style="cursor: pointer"><i class="fas fa-archive"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Is Admin ?</label>
+                            <div class="col-sm-8">
                                 <?php echo form_checkbox($is_admin, FALSE) ?>
-                                <b style="margin-left: 6px">Is Admin</b>
-                                <sup id="tooltip"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="If checked, only admin group can access menu and view page"></i></sup>
                             </div>
                         </div>
 

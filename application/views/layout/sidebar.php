@@ -17,7 +17,7 @@
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar nav-flat nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
 
             <?php // Menu dinamis tiga layer
@@ -114,7 +114,8 @@
                         <li class="nav-item">
                             <a href="<?php echo base_url('crud') ?>" class="nav-link <?php echo $this->uri->segment(1) == 'crud' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-code"></i>
-                                <p>CRUD<span class="right badge badge-danger">New</span></p>
+                                <p>CRUD</p>
+                                <!-- <p>CRUD<span class="right badge badge-danger">New</span></p> -->
                             </a>
                         </li>
                     </ul>

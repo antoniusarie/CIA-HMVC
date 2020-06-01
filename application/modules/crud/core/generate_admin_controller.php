@@ -117,10 +117,10 @@ $string .= "\n\t\t\t);
         \$this->_rules();
 
         if (\$this->form_validation->run() == FALSE) {
-            \$this->session->set_flashdata('message', validation_errors());
-            \$this->session->set_flashdata('type', 'warning');
+            \$this->session->set_flashdata('message', trim_str(validation_errors()));
+            \$this->session->set_flashdata('type', 'error');
             \$this->create();
-            redirect(site_url('$c_url/create_".$c_url."'));
+            redirect(site_url('$c_url/create'));
         } else {
             \$data = array(";
 foreach ($non_pk as $row) {
@@ -177,8 +177,8 @@ $string .= "\n\t\t    );
         \$this->_rules();
 
         if (\$this->form_validation->run() == FALSE) {
-            \$this->session->set_flashdata('message', validation_errors());
-            \$this->session->set_flashdata('type', 'warning');
+            \$this->session->set_flashdata('message', trim_str(validation_errors()));
+            \$this->session->set_flashdata('type', 'error');
             \$this->update(\$this->input->post('$pk', TRUE));
             redirect(site_url('$c_url/update/'.\$this->input->post('$pk', TRUE)));
         } else {

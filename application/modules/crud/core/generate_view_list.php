@@ -15,7 +15,7 @@ $string .= "
 
             <div class='card-body'>
 
-            <table class=\"table table-bordered table-striped\" id=\"mytable\">
+            <table class=\"table table-bordered table-striped w-100\" id=\"mytable\">
             <thead>
                 <tr>
                     <th width=\"4%\">No</th>";

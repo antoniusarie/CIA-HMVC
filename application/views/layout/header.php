@@ -1,6 +1,6 @@
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar elevation-4 sidebar-dark-secondary">
+    <aside class="main-sidebar elevation-4 sidebar-dark-gray">
 
         <!-- Brand Logo -->
         <a href="<?php echo site_url('home') ?>" class="brand-link">

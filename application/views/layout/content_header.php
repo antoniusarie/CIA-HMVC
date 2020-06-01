@@ -1,5 +1,5 @@
 <!-- alert flashdata -->
-<?php echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
+<?php // echo (empty(@$message) ? flash_msg(@$this->session->flashdata('message'), @$this->session->flashdata('type')) : @$message) ?>
 
 <!-- Content Header (Page header) -->
 <div class="content-header">

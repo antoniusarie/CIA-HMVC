@@ -34,7 +34,7 @@ class Auth extends MY_Controller
 			redirect('home', 'refresh');
 		} else {
 			// set the flash data error message if there is one
-			$data['message'] = warning_msg(validation_errors());
+			$data['message'] = toastr_warning_msg(trim_str(validation_errors()));
 
 			//list the users
 			$data['users'] = $this->ion_auth->users()->result();
@@ -76,13 +76,13 @@ class Auth extends MY_Controller
 			if ($login) {
 				//if the login is successful
 				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', trim_str($this->ion_auth->messages()));
 				$this->session->set_flashdata('type', 'success');
 				redirect('home', 'refresh');
 			} else {
 				// if the login was un-successful
 				// redirect them back to the login page
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->session->set_flashdata('message', trim_str($this->ion_auth->errors()));
 				$this->session->set_flashdata('type', 'error');
 				redirect('login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
@@ -135,7 +135,7 @@ class Auth extends MY_Controller
 
 				if ($google_login) {
 					// set flashdata for success alerts
-					$this->session->set_flashdata('message', $this->ion_auth->messages());
+					$this->session->set_flashdata('message', trim_str($this->ion_auth->messages()));
 					$this->session->set_flashdata('type', 'success');
 
 					// redirect them back to the home page
@@ -149,7 +149,7 @@ class Auth extends MY_Controller
 			}
 			// the user is not logging in so display the login page
 			// set the flash data error message if there is one
-			$data['message'] = warning_msg(validation_errors());
+			$data['message'] = warning_msg(trim_str(validation_errors()));
 			$data['identity'] = array(
 				'name' => 'identity',
 				'id'    => 'identity',
@@ -220,13 +220,13 @@ class Auth extends MY_Controller
 					*/
 				} else {
 
-					$this->session->set_flashdata('message', $this->ion_auth->errors());
+					$this->session->set_flashdata('message', trim_str($this->ion_auth->errors()));
 					$this->session->set_flashdata('type', 'error');
 					redirect('registration');
 				}
 			} else {
 				// pass the user to the view
-				$data['message'] = warning_msg(validation_errors());
+				$data['message'] = warning_msg(trim_str(validation_errors()));
 
 				$data['images'] = $google['img_name'];
 				$data['identity'] = array('identity' => $google['email']);
@@ -282,12 +282,12 @@ class Auth extends MY_Controller
 			$email_content .= 'Enjoy and have a nice day!</p>';
 			email_send($users['email'], 'Activation Completed', $email_content);
 
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
+			$this->session->set_flashdata('message', trim_str($this->ion_auth->messages()));
 			$this->session->set_flashdata('type', 'success');
 			redirect('home', 'refresh');
 		} else {
 			// redirect them to the forgot password page
-			$this->session->set_flashdata('message', $this->ion_auth->errors());
+			$this->session->set_flashdata('message', trim_str($this->ion_auth->errors()));
 			$this->session->set_flashdata('type', 'error');
 			redirect('login', 'refresh');
 		}
@@ -332,7 +332,7 @@ class Auth extends MY_Controller
 				}
 			} else {
 				// validation notification
-				$data['message'] = warning_msg(validation_errors());
+				$data['message'] = warning_msg(trim_str(validation_errors()));
 
 				// pass the user to the view
 				$data['authURL'] = $google['authURL']; // Google Login URL
@@ -442,7 +442,7 @@ class Auth extends MY_Controller
 		if ($this->form_validation->run() == false) {
 			// display the form
 			// set the flash data error message if there is one
-			$data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			$data['message'] = (trim_str(validation_errors())) ? trim_str(validation_errors()) : $this->session->flashdata('message');
 
 			$data['min_password_length'] = $this->config->item('min_password_length', 'ion_auth');
 			$data['old_password'] = array(
@@ -513,7 +513,7 @@ class Auth extends MY_Controller
 			}
 
 			// set any errors and display the form
-			$data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			$data['message'] = (trim_str(validation_errors())) ? trim_str(validation_errors()) : $this->session->flashdata('message');
 			$this->_render_page('auth/forgot_password', $data);
 		} else {
 			$identity_column = $this->config->item('identity', 'ion_auth');
@@ -564,7 +564,7 @@ class Auth extends MY_Controller
 				// display the form
 
 				// set the flash data error message if there is one
-				$data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+				$data['message'] = (trim_str(validation_errors())) ? trim_str(validation_errors()) : $this->session->flashdata('message');
 
 				$data['min_password_length'] = $this->config->item('min_password_length', 'ion_auth');
 				$data['new_password'] = array(
@@ -725,7 +725,7 @@ class Auth extends MY_Controller
 		} else {
 			// display the create user form
 			// set the flash data error message if there is one
-			$data['message'] = warning_msg(validation_errors());
+			$data['message'] = toastr_warning_msg(trim_str(validation_errors()));
 
 			$data['first_name'] = array(
 				'name'  => 'first_name',
@@ -966,7 +966,7 @@ class Auth extends MY_Controller
 		$data['csrf'] = $this->_get_csrf_nonce();
 
 		// set the flash data error message if there is one
-		$data['message'] = warning_msg(validation_errors());
+		$data['message'] = toastr_warning_msg(trim_str(validation_errors()));
 
 		// pass the user to the view
 		$data['user'] = $user;
@@ -1129,7 +1129,7 @@ class Auth extends MY_Controller
 		} else {
 			// display the create group form
 			// set the flash data error message if there is one
-			$data['message'] = warning_msg(validation_errors());
+			$data['message'] = toastr_warning_msg(trim_str(validation_errors()));
 
 			$data['group_name'] = array(
 				'name'  => 'group_name',
@@ -1192,7 +1192,7 @@ class Auth extends MY_Controller
 		}
 
 		// set the flash data error message if there is one
-		$data['message'] = warning_msg(validation_errors());
+		$data['message'] = toastr_warning_msg(trim_str(validation_errors()));
 
 		// pass the user to the view
 		$data['group'] = $group;
