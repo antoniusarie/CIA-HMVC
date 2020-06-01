@@ -1,8 +1,19 @@
 # CIA HMVC
-Code Igniter Automation - Modular HMVC
+Code Igniter Automation - Modular HMVC - v1.12
 
 ## Informasi
 PHP Framework CI v3 dengan template AdminLTE v3 + Bootstrap 4 dan ACL module dari Ion Auth serta CRUD Generator.
+
+## Update - 02/06/2020
+1. Notifikasi alert menggunakan `Toastr`.
+2. Input `file-upload` menggunakan `bs-custom-file-input`.
+3. Fix path folder module di controller `Crud`.
+4. Tambah `table class w-100` pada `controller generator` di module core `CRUD`.
+5. Tambah pilihan `iconpicker` di menu `CRUD`.
+6. Tambah fungsi `trim_str` dan `toastr` di `my_helper`.
+7. Sidebar set ke tipe `nav-flat`, warna accent, navbar, logo dan sidebar set ke `dark / gray-dark`.
+8. Font Family menggunakan Google Font `Oxygen`.
+9. `DataTables Buttons` ditambah `colvis` dan `print`, `ExportOption` di set hanya pada kolom yg `visible` saja.
 
 ## Initial - 14/5/2020
 1. Update latest `CodeIgniter 3 HMVC` support `php v7.2`.
