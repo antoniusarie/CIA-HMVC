@@ -1,24 +1,41 @@
+
+/* @font-face {
+	font-family: 'Gotham', sans-serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+	src        : url('./assets/dist/font/gotham-light-webfont.woff') format('woff');
+	src        : url('./assets/dist/font/gotham-light-webfont.woff2') format('woff2');
+	src        : url('./assets/dist/font/gotham-light-webfont.ttf') format('truetype');
+	src        : url('./assets/dist/font/gotham-light-webfont.svg') format('svg');
+} */
+
+/* body {
+	font-family: 'Gotham', sans-serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+body {font-family: 'Cairo', sans-serif !important;
+}
+
 #alert-message {
-	position: top;
-	width: 100%;
-  	left: 0%;
-	z-index: 999;
-	display: none;
+	position : top;
+	width    : 100%;
+	left     : 0%;
+	z-index  : 999;
+	display  : none;
 	font-size: 15px;
 }
 
 .swal-footer {
-  text-align: center;
-  overflow: hidden;
+	text-align: center;
+	overflow  : hidden;
 }
 
 .tooltip {
-  width: 400px;
+	width: 400px;
 }
 
 .tooltip {
-  opacity: 0;
-  transition: opacity 1s;
+	opacity   : 0;
+	transition: opacity 1s;
 }
 
 #tooltip {

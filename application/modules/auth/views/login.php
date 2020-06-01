@@ -19,7 +19,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/ionicons/css/ionicons.min.css" ?>">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" ?>">
+    <link rel="stylesheet" href="<?php echo base_url() . "assets/plugins/icheck/all.css" ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url() . "assets/dist/css/adminlte.css" ?>">
 </head>
