@@ -11,7 +11,7 @@
             <?php endif ?>
         </div>
         <div class="info">
-            <a href="#" class="d-block"><?php echo $user->username ?></a>
+            <a href="<?php echo base_url('profile') ?>" class="d-block"><?php echo $user->username ?></a>
         </div>
     </div>
 
@@ -85,7 +85,6 @@
             ?>
 
             <?php if ($this->ion_auth->is_admin()) : ?>
-                <li class="nav-header">SETTINGS</li>
                 <li class="nav-item has-treeview <?php echo $this->uri->segment(1) == 'menu' || $this->uri->segment(1) == 'users' || $this->uri->segment(1) == 'groups' || $this->uri->segment(1) == 'crud' ? 'menu-open' : '' ?>">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
