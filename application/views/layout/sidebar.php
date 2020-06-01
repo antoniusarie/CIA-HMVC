@@ -95,19 +95,19 @@
                         <li class="nav-item">
                             <a href="<?php echo base_url('menu') ?>" class="nav-link <?php echo $this->uri->segment(1) == 'menu' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-bars"></i>
-                                <p>Menu Management</p>
+                                <p>Menu</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo base_url('users') ?>" class="nav-link <?php echo $this->uri->segment(1) == 'users' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>User Management</p>
+                                <p>User</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo base_url('groups') ?>" class="nav-link <?php echo $this->uri->segment(1) == 'groups' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-users"></i>
-                                <p>Group Management</p>
+                                <p>Group</p>
                             </a>
                         </li>
                         <li class="nav-item">

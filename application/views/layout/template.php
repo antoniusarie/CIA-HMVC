@@ -10,7 +10,7 @@
     <!-- js --><?php echo @$js ?>
 
     </head>
-    <body class="hold-transition sidebar-mini accent-gray">
+    <body class="hold-transition sidebar-mini accent-gray text-sm">
 
     <div class="wrapper">
         <!-- navbar --><?php echo @$nav ?>
