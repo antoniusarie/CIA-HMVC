@@ -59,7 +59,7 @@
                     <div class="col">
                         <div class="icheck-primary">
                             <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?>
-                            <label for="remember">
+                            <label for="remember" class="ml-1">
                                 Remember Me
                             </label>
                         </div>
