@@ -51,7 +51,7 @@ chmod -R 0777 /path-ke-folder-webserver/application/modules/
     * Agar `Google Login OAuth2` berfungsi normal, sesuaikan konfigurasi `client-id` dan `client-secret` di `google_config.php`
 
 ## Demo
-Demo website di https://hmvc.binaniaga.web.id
+Demo website di https://andynar.id/login
 
 ## Penutup
 Semoga bermanfaat.
